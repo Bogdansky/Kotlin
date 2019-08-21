@@ -1,19 +1,20 @@
-import java.time.LocalDateTime
-import java.util.*
+import learning.*
+fun unit(){}
+var gcd = {unit()}; // { getCurrentDate() } лямбда-выражение. если вывести лямбду без аргументов - тело функции
 
-fun main(args: Array<String>){
+fun main(){
     fun redundantStuff(){
         var int = 5;
-        val inttoo = 4;
+        val second = 4;
         int = int shr 2;
         println("$int");
         int = int shl 2;
         println("$int");
         int = int.inv();
         println(int)
-        var b = (int or inttoo > 1) or false;
-        var c = (int or inttoo < 1) and true;
-        var d = b xor c;
+        val b = (int or second > 1) or false;
+        val c = (int or second < 1) and true;
+        val d = b xor c;
         println(b);
         println(c);
         println(d);
@@ -21,60 +22,21 @@ fun main(args: Array<String>){
         val result = !b xor b.not();
         println(result);
     }
+    gcd = { redundantStuff() } //  - нельзя, так как после инициализации gcd имеет возвращаемое значение LocalDateTime?, а redundantStuff - Unit
     val x = 3;
     println("Included $x in range 10 8 6 4 2: " + checkIn(x));
     println("Which number 9: "+returningValueByIfElse(9));
-    println(beginMiddleEnd(getCurrentDate().dayOfMonth));
+    println(getCurrentDate()?.dayOfMonth?.let { beginMiddleEnd(it) });
     squareTable(1, 10);
-    squareTable(end = 10, begin = 1);
+    squareTable(end = 10, begin = 1)
     output("Hi","dear","kind","doggy","I","love","you")
     output("Hi","dear","kind","doggy","I","love","you", index = 0)
-}
-// sequences
-fun checkIn(variable: Int): Boolean{
-    val lowerBound = 1;
-    val topBound = 10;
-    val resultRange = topBound downTo lowerBound step 2; // until - не включая
-    return variable in resultRange; // sequence или последовательность
-}
-//condition constructions
-fun returningValueByIfElse(variable: Int): String{
-    return if (variable !in -9..9){
-        "Composite"
-    } else {
-        "Simple"
-    }
-}
-// operator "when"
-fun beginMiddleEnd(day: Int): String {
-    println("Now is $day");
-    val part = when (day){
-        in 1..10 -> "Begin"
-        in 11..20 -> "Middle"
-        else -> "End"
-    }
-    return "$part of month";
-}
-//cycles
-fun squareTable(begin: Int, end: Int){
-    for(n in begin..end){
-        val pow2 = n * n;
-        println("$n: $pow2");
-    }
-}
-// non-fixed number of args
-fun output(vararg strings: String){
-    for(n in strings){
-        print("$n ");
-    }
-    println();
-}
-//overloading output(...strings). return type is not taken
-fun output(vararg strings: String, index: Int = 0){
-    var ind = index;
-    var str = strings[ind++];
-    print("$str ");
-    if (ind == strings.size) { println(); return } else output(*strings, index = ind);
+    usingLambda();
 }
 
-fun getCurrentDate() = LocalDateTime.now();
+fun usingLambda() {
+    var hello = {println("hello")}
+    hello()
+    run { println("hello by run")}
+    println(gcd())
+}
