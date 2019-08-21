@@ -16,4 +16,12 @@ fun main(args: Array<String>){
     // ! == .not()
     val result = !b xor b.not();
     println(result);
+    val x = 3;
+    println("Included $x in range 1..10: " + checkIn(x));
+}
+
+fun checkIn(variable: Int): Boolean{
+    val lowerBound = 1;
+    val topBound = 10;
+    return variable in lowerBound..topBound;
 }
