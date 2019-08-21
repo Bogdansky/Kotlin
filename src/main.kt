@@ -28,7 +28,7 @@ fun main(args: Array<String>){
     squareTable(1, 10);
     squareTable(end = 10, begin = 1);
     output("Hi","dear","kind","doggy","I","love","you")
-    outputWithRecursion("Hi","dear","kind","doggy","I","love","you")
+    output("Hi","dear","kind","doggy","I","love","you", index = 0)
 }
 // sequences
 fun checkIn(variable: Int): Boolean{
@@ -69,12 +69,12 @@ fun output(vararg strings: String){
     }
     println();
 }
-
-fun outputWithRecursion(vararg strings: String, index: Int = 0){
+//overloading output(...strings). return type is not taken
+fun output(vararg strings: String, index: Int = 0){
     var ind = index;
     var str = strings[ind++];
     print("$str ");
-    if (ind == strings.size) { println(); return } else outputWithRecursion(*strings, index = ind);
+    if (ind == strings.size) { println(); return } else output(*strings, index = ind);
 }
 
 fun getCurrentDate() = LocalDateTime.now();
