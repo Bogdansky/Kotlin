@@ -1,28 +1,30 @@
 import java.time.LocalDateTime
-import kotlin.math.pow
+import java.util.*
 
 fun main(args: Array<String>){
-    var int = 5;
-    val inttoo = 4;
-    int = int shr 2;
-    println("$int");
-    int = int shl 2;
-    println("$int");
-    int = int.inv();
-    println(int)
-    var b = (int or inttoo > 1) or false;
-    var c = (int or inttoo < 1) and true;
-    var d = b xor c;
-    println(b);
-    println(c);
-    println(d);
-    // ! == .not()
-    val result = !b xor b.not();
-    println(result);
+    fun redundantStuff(){
+        var int = 5;
+        val inttoo = 4;
+        int = int shr 2;
+        println("$int");
+        int = int shl 2;
+        println("$int");
+        int = int.inv();
+        println(int)
+        var b = (int or inttoo > 1) or false;
+        var c = (int or inttoo < 1) and true;
+        var d = b xor c;
+        println(b);
+        println(c);
+        println(d);
+        // ! == .not()
+        val result = !b xor b.not();
+        println(result);
+    }
     val x = 3;
     println("Included $x in range 10 8 6 4 2: " + checkIn(x));
     println("Which number 9: "+returningValueByIfElse(9));
-    println(beginMiddleEnd(LocalDateTime.now().dayOfMonth));
+    println(beginMiddleEnd(getCurrentDate().dayOfMonth));
     squareTable(1, 10);
     squareTable(end = 10, begin = 1);
     output("Hi","dear","kind","doggy","I","love","you")
@@ -74,3 +76,5 @@ fun outputWithRecursion(vararg strings: String, index: Int = 0){
     print("$str ");
     if (ind == strings.size) { println(); return } else outputWithRecursion(*strings, index = ind);
 }
+
+fun getCurrentDate() = LocalDateTime.now();
