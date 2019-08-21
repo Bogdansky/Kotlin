@@ -26,6 +26,7 @@ fun main(args: Array<String>){
     squareTable(1, 10);
     squareTable(end = 10, begin = 1);
     output("Hi","dear","kind","doggy","I","love","you")
+    outputWithRecursion("Hi","dear","kind","doggy","I","love","you")
 }
 // sequences
 fun checkIn(variable: Int): Boolean{
@@ -64,4 +65,12 @@ fun output(vararg strings: String){
     for(n in strings){
         print("$n ");
     }
+    println();
+}
+
+fun outputWithRecursion(vararg strings: String, index: Int = 0){
+    var ind = index;
+    var str = strings[ind++];
+    print("$str ");
+    if (ind == strings.size) { println(); return } else outputWithRecursion(*strings, index = ind);
 }
