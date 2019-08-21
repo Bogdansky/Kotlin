@@ -25,6 +25,7 @@ fun main(args: Array<String>){
     println(beginMiddleEnd(LocalDateTime.now().dayOfMonth));
     squareTable(1, 10);
     squareTable(end = 10, begin = 1);
+    output("Hi","dear","kind","doggy","I","love","you")
 }
 // sequences
 fun checkIn(variable: Int): Boolean{
@@ -56,5 +57,11 @@ fun squareTable(begin: Int, end: Int){
     for(n in begin..end){
         val pow2 = n * n;
         println("$n: $pow2");
+    }
+}
+// non-fixed number of args
+fun output(vararg strings: String){
+    for(n in strings){
+        print("$n ");
     }
 }
