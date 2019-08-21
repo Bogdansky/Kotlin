@@ -13,4 +13,6 @@ fun main(args: Array<String>){
     println(b);
     println(c);
     println(d);
+    // ! == .not()
+    println(!5 == 5.not());
 }
