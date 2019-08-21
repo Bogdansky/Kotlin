@@ -14,5 +14,6 @@ fun main(args: Array<String>){
     println(c);
     println(d);
     // ! == .not()
-    println(!5 == 5.not());
+    val result = !b xor b.not();
+    println(result);
 }
