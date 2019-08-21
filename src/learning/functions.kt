@@ -3,7 +3,7 @@ package learning
 import java.time.LocalDateTime
 
 // sequences
-fun checkIn(variable: Int): Boolean{
+fun checkIn(variable: Int): Boolean {
     val lowerBound = 1;
     val topBound = 10;
     val resultRange = topBound downTo lowerBound step 2; // until - не включая

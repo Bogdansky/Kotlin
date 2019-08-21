@@ -23,14 +23,16 @@ fun main(){
         println(result);
     }
     gcd = { redundantStuff() } //  - нельзя, так как после инициализации gcd имеет возвращаемое значение LocalDateTime?, а redundantStuff - Unit
+    var oas = {array: Array<String> -> output(*array, index = 0)}
     val x = 3;
     println("Included $x in range 10 8 6 4 2: " + checkIn(x));
     println("Which number 9: "+returningValueByIfElse(9));
     println(getCurrentDate()?.dayOfMonth?.let { beginMiddleEnd(it) });
     squareTable(1, 10);
     squareTable(end = 10, begin = 1)
-    output("Hi","dear","kind","doggy","I","love","you")
-    output("Hi","dear","kind","doggy","I","love","you", index = 0)
+    //output("Hi","dear","kind","doggy","I","love","you")
+    //output("Hi","dear","kind","doggy","I","love","you", index = 0)
+    oas(arrayOf("Hi","dear","kind","doggy","I","love","you"));
     usingLambda();
 }
 
