@@ -1,4 +1,5 @@
 import java.time.LocalDateTime
+import kotlin.math.pow
 
 fun main(args: Array<String>){
     var int = 5;
@@ -22,12 +23,13 @@ fun main(args: Array<String>){
     println("Included $x in range 1..10: " + checkIn(x));
     println("Which number 9: "+returningValueByIfElse(9));
     println(beginMiddleEnd(LocalDateTime.now().dayOfMonth));
+    squareTable(1, 10);
 }
 
 fun checkIn(variable: Int): Boolean{
     val lowerBound = 1;
     val topBound = 10;
-    return variable in lowerBound..topBound;
+    return variable in lowerBound..topBound; // sequence или последовательность
 }
 
 fun returningValueByIfElse(variable: Int): String{
@@ -46,4 +48,11 @@ fun beginMiddleEnd(day: Int): String {
         else -> "End"
     }
     return "$part of month";
+}
+
+fun squareTable(begin: Int, end: Int){
+    for(n in begin..end){
+        val pow2 = n * n;
+        println("$n: $pow2");
+    }
 }
