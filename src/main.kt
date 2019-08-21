@@ -20,18 +20,20 @@ fun main(args: Array<String>){
     val result = !b xor b.not();
     println(result);
     val x = 3;
-    println("Included $x in range 1..10: " + checkIn(x));
+    println("Included $x in range 10 8 6 4 2: " + checkIn(x));
     println("Which number 9: "+returningValueByIfElse(9));
     println(beginMiddleEnd(LocalDateTime.now().dayOfMonth));
     squareTable(1, 10);
+    squareTable(end = 10, begin = 1);
 }
-
+// sequences
 fun checkIn(variable: Int): Boolean{
     val lowerBound = 1;
     val topBound = 10;
-    return variable in lowerBound..topBound; // sequence или последовательность
+    val resultRange = topBound downTo lowerBound step 2; // until - не включая
+    return variable in resultRange; // sequence или последовательность
 }
-
+//condition constructions
 fun returningValueByIfElse(variable: Int): String{
     return if (variable !in -9..9){
         "Composite"
@@ -39,7 +41,7 @@ fun returningValueByIfElse(variable: Int): String{
         "Simple"
     }
 }
-
+// operator "when"
 fun beginMiddleEnd(day: Int): String {
     println("Now is $day");
     val part = when (day){
@@ -49,7 +51,7 @@ fun beginMiddleEnd(day: Int): String {
     }
     return "$part of month";
 }
-
+//cycles
 fun squareTable(begin: Int, end: Int){
     for(n in begin..end){
         val pow2 = n * n;
